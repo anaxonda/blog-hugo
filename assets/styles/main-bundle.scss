@@ -194,3 +194,8 @@ aside {
   scrollbar-color: var(--scrollbar-color) var(--scrollbar-bg-color);
   scrollbar-width: thin;
 }
+
+.turbolinks-progress-bar {
+  height: 2px;
+  background-color: var(--accent-color);
+}

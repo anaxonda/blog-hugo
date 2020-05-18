@@ -6,8 +6,9 @@
   {{ $bundle := slice $libs $main | resources.Concat "bundle.js" | resources.Fingerprint "sha512" }}
   <script src="{{ $bundle.RelPermalink }}" integrity="{{ $bundle.Data.Integrity }}"></script>
 {{ else }}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/turbolinks/5.2.0/turbolinks.js" defer></script>
   {{ $libs := resources.Get "libraries.js" | resources.Fingerprint "sha512" }}
-  <script src="{{ $libs.RelPermalink }}" integrity="{{ $libs.Data.Integrity }}"></script>
-  {{ $mainDev := resources.Get "main.js" }}
-  <script src="{{ $mainDev.RelPermalink }}"></script>
+  <script src="{{ $libs.RelPermalink }}" integrity="{{ $libs.Data.Integrity }}" defer></script>
+  {{ $mainDev := resources.Get "main.js" | resources.Fingerprint "sha512" }}
+  <script src="{{ $mainDev.RelPermalink }}" integrity="{{ $mainDev.Data.Integrity }}" defer></script>
 {{ end }}

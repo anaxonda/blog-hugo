@@ -55,13 +55,13 @@
   </figure>
 </noscript>
 
-<figure class="{{ $border_class }} lazy">
+<figure class="{{ $border_class }} lazy" style="max-width: 100%">
   {{ if .Get "lightbox" }}
   <a href='{{ $image.RelPermalink }}' @click.prevent="lightbox.open($event, $refs)">
     {{ end }}
     <img class="lazyload" data-sizes="auto" src="{{ $src.RelPermalink }}" {{ if $width }}width="{{$width}}"{{ end }}
       srcset="data:image/jpeg;base64,{{ $placeholder.Content | base64Encode }}" data-src="{{ $src.RelPermalink }}"
-      data-srcset="{{ $src_set }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="{{ $alt }}" />
+      data-srcset="{{ $src_set }}" style="max-width: 100%" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="{{ $alt }}" />
     {{ if .Get "lightbox" }}
   </a>
   {{ end }}
